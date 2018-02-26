@@ -1,0 +1,8 @@
+<h4 *ngIf="auth.isAuthenticated()">
+  <h3>Welcome to Flight App {{ profile?.nickname }}</h3>
+  You are logged in! You can now view your <a routerLink="/profile">profile area</a>.
+</h4>
+<h4 *ngIf="!auth.isAuthenticated()">
+  <h3>Welcome to Flight App</h3>
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>

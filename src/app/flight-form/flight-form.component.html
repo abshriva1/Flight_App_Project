@@ -1,0 +1,107 @@
+<div class="well well-lg">
+  <form #f="ngForm" novalidate autocomplete="off" (ngSubmit)="onSave(f.value)">
+    <div class="form-group">
+      <label for="flight_From">From</label>
+      <input type="text"
+      class="form-control" 
+      id="flight_From" 
+      name="flightFrom" 
+      #myFlightFrom="ngModel"
+      placeholder="Please enter pickup"
+      ngModel
+      required>
+      <div class="alert alert-danger" *ngIf="!myFlightFrom.valid && myFlightFrom.touched">
+      <div *ngIf="myFlightFrom.errors.required">Flight From is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="flight_To">To</label>
+      <input type="text"
+       class="form-control"
+       id="flight_To"
+       name="flightTo"
+       ngModel
+       #myFlightTo='ngModel'
+       placeholder="Please enter destination"
+       pattern="^[a-zA-Z]*$"
+       required>
+       <div class="alert alert-danger" *ngIf="!myFlightTo.valid && myFlightTo.touched">
+       <div *ngIf="myFlightTo.errors.required">Flight To field is required</div>
+       <div [hidden]="!myFlightTo.errors.pattern">Please enter alphabets</div>
+       </div>
+    </div>
+     <div class="form-group">
+      <label for="flight_Airine">Airlines</label>
+      <select class="txt-box" 
+      name="airlineType" 
+      [(ngModel)]="airTypes" 
+      class="form-control" 
+      #AirType='ngModel'
+      required>
+      <option [value]="airTypes" [disabled]="true">Select Option </option>
+      <option *ngFor="let air of airlineType" [ngValue]="air.type">
+      {{air.type}}
+      </option>
+   </select>
+   <div class="alert alert-danger" *ngIf="!AirType.valid && AirType.touched">
+    <div *ngIf="AirType.errors.required">Airline is required</div>
+   </div>
+    </div>
+    <div class="form-group">
+      <label for="flight_arrival_date">Arrival Date</label>
+      <input type="date" 
+      ngModel
+      name="arrivalDate"  class="form-control"
+      placeholder="Date of Arrival"
+      #myFlightArrivalDate='ngModel'
+      required>
+      <div class="alert alert-danger" *ngIf="!myFlightArrivalDate.valid && myFlightArrivalDate.touched">
+        <div *ngIf="myFlightArrivalDate.errors.required">Arrival Date is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+      <label for="flight_departure_date">Departure Date</label>
+      <input type="date" 
+      ngModel
+      name="departureDate"  class="form-control"
+      placeholder="Date of Departure"
+      #myFlightDepartureDate='ngModel'
+      required>
+      <div class="alert alert-danger" *ngIf="!myFlightDepartureDate.valid && myFlightDepartureDate.touched">
+      <div *ngIf="myFlightDepartureDate.errors.required">Departure Date is required</div>
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="flight_Arrival_time">Arrival Time</label>
+        <input type="text"
+         class="form-control" 
+         id="flight_Arrival_time" 
+         name="arrivalTime" 
+         ngModel
+         #myFlightArrivalTime='ngModel'
+         placeholder="Please enter Arrival Time"
+         required>
+         <div class="alert alert-danger" *ngIf="!myFlightArrivalTime.valid && myFlightArrivalTime.touched">
+         <div *ngIf="myFlightArrivalTime.errors.required">Arrival Time is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="flight_departure_time">Departure Time</label>
+        <input type="text"
+         class="form-control" 
+         id="flight_departure_time" 
+         name="departureTime" 
+         ngModel
+         #myFlightDepartureTime='ngModel'
+         placeholder="Please enter Departure Time"
+         required>
+         <div class="alert alert-danger" *ngIf="!myFlightDepartureTime.valid && myFlightDepartureTime.touched">
+         <div *ngIf="myFlightDepartureTime.errors.required">Departure Time is required</div>
+        </div>
+      </div>
+
+    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Add"  [disabled]="f.invalid">
+    <input type="button" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Reset" (click)="resetForm(f)" >
+    
+  </form>
+</div>

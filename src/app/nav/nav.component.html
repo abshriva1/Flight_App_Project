@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+  <li routerLinkActive="active"><a routerLink="#">Flight App</a></li>
+  <li routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact:true}"
+  ><a routerLink="/">Home</a></li>
+  <li routerLinkActive="active" *ngIf="!auth.isAuthenticated()"
+  (click)="auth.login()"><a routerLink="#">Login</a></li>
+  <li routerLinkActive="active" *ngIf="auth.isAuthenticated()">
+  <a routerLink="/flights">Add Flight</a></li>
+  <li routerLinkActive="active" *ngIf="auth.isAuthenticated()">
+  <a routerLink="/flightList">Flight Status</a></li>
+  <li routerLinkActive="active"  *ngIf="auth.isAuthenticated()"
+  (click)="auth.logout()"><a routerLink="#">Log Out</a></li>
+</ul>
