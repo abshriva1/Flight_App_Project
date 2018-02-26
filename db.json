@@ -1,0 +1,24 @@
+{
+  "airType": [
+    {
+      "id": 1,
+      "type": "Indigo"
+    },
+    {
+      "id": 1,
+      "type": "Jet-Airways"
+    }
+  ],
+  "flights": [
+    {
+      "flightFrom": "Pune",
+      "flightTo": "Delhi",
+      "airline": "Indigo",
+      "arrivalDate": "12-12-1993",
+      "departureDate": "12-12-1993",
+      "arrivalTime": "13:00AM",
+      "departureTime":"14:00AM"
+
+    }
+  ]
+}
